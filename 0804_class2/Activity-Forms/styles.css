@@ -1,0 +1,183 @@
+/* MAIN BACKGROUND FOR THE PAGES */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.background-home {
+    position: relative;
+    min-height: 100vh; /* Allow scrolling */
+    background-image: url('main-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+}
+
+.menu-section {
+    padding: 5%;
+    align-self: center;
+    background-color: blue;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+/* CHOOSE BETWEEN WHAT INTERFACE */
+.prof-aluno-grid {
+    background-color: orange;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: repeat(1, 2fr);
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px;
+    padding-left: 20%;
+    padding-right: 20%;
+    max-height: 20%;
+}
+
+.main-button-thumb {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+
+    background-color: rgba(255, 255, 255, .85);
+    color: black;
+    text-decoration: none;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: sans-serif;
+    border: 2px solid black;
+    border-radius: 0; /* square corners */
+
+    transition: background-color 0.2s, color 0.2s;
+    cursor: pointer;
+    min-width: 90%;
+    min-height: 10%;
+    padding: 8px 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn-main:hover {
+    background-color: black;
+    color: white;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh; 
+}
+
+.rectangle-home {
+    background-color: aqua;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10%;
+    max-height: 25%;
+    max-width: 25%;
+}
+
+.introduction {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    min-width: 80%;
+    max-width: 80%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 12px;
+    border-radius: 12px;
+    z-index: 3;
+    font-family: sans-serif;
+}
+
+.background_sub {
+    position: relative;
+    min-height: 100vh; /* Allow scrolling */
+    background-image: url('main-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+}
+
+form {
+    color: black;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 0 auto; /* Centraliza o formulário horizontalmente */
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Estilos para campos de entrada de texto, e-mail e senha */
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="number"] {
+    width: calc(100% - 12px);
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-weight: normal;
+}
+/* Estilos para o botão de envio do formulário */
+input[type="submit"] {
+    font-weight: bold;
+    width: 100%;
+    padding: 8px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.sub-title {
+    text-align: center;
+    font-size: larger;
+}
+
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 999;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.floating-button:hover {
+    transform: scale(1.1);
+}
+
+.button-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

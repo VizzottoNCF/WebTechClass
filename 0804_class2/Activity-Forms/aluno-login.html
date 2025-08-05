@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Aluno</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="background_sub">
+        <section class="introduction">
+        <br>
+
+            <form action="/submit-form" method="post">
+                <p class="sub-title"> Cadastro de Alunos</p>
+
+
+                <label for="nome">Nome Completo:</label> <!-- name -->
+                <input type="text" id="nome" name="nome" required> 
+
+                <label for="matricula">Número de Matricula:</label> <!-- matricula -->
+                <input type="number" id="matricula" name="matricula" required> 
+
+                <label for="curso">Curso:</label> <!-- curso -->
+                <input type="text" id="curso" name="curso" required> 
+
+                <label for="ano-ingresso">Ano de ingresso:</label> <!-- ano de ingresso -->
+                <input type="number" id="ano-ingresso" name="ano-ingresso" min="1900" max="2099" step="1" required> 
+
+                <label for="data-nasc">Data de Nascimento:</label> <!-- data de nascimento -->
+                <input type="date" id="data-nasc" name="data-nasc" required> 
+
+                <label for="email">E-mail:</label> <!-- e-mail -->
+                <input type="email" id="email" name="email" required>
+
+                <label for="cell-num">Telefone:</label> <!-- cell number -->
+                <input type="number" id="cell-num" name="cell-num" required> 
+
+
+                <input type="submit" value="Enviar"> 
+            </form>
+
+
+            <a href="index.html" class="floating-button">
+                    <img src="return_icon.png" alt="Home" class="button-icon">
+            </a>
+
+        </section>
+    </div>
+</body>
+<footer>
+
+</footer>
+</html>
