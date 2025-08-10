@@ -9,10 +9,9 @@
 <body>
     <div class="background_sub">
         <section class="introduction">
-        <br>
 
             <form action="/submit-form" method="post">
-                <p class="sub-title"> Cadastro de Alunos</p>
+                <p class="sub-title"> Cadastro de Professores</p>
 
 
                 <label for="nome">Nome Completo:</label> <!-- name -->
@@ -38,34 +37,35 @@
                 <input type="number" id="cell-num" name="cell-num" required> 
                 
                 <label for="data-nasc">Área de Atuação:</label> <!-- area atuação -->
-                <div>
-                    <input type="checkbox" id="redes" name="redes" />
-                    <label for="redes">Redes</label>
+                <div class="checkbox-grid">
+                    <div>
+                        <input type="checkbox" id="redes" name="redes" />Redes
+                    </div>
+                    <div>
+                        <input type="checkbox" id="jogos" name="jogos" />Jogos
+                    </div>
+                    <div>
+                        <input type="checkbox" id="design" name="design" /><a>Design</a>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="adm" name="adm" /><a>Administração</a>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="outro" name="outro" /><a>Outro.</a>
+                    </div>
                 </div>
-                <div>
-                    <input type="checkbox" id="jogos" name="jogos" />
-                    <label for="jogos">Jogos</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="outro" name="outro" />
-                    <label for="outro">Outros.</label>
-                </div>
-
 
 
 
                 <input type="submit" value="Enviar"> 
             </form>
-
-
-            <a href="index.html" class="floating-button">
-                    <img src="return_icon.png" alt="Home" class="button-icon">
-            </a>
-
         </section>
     </div>
 </body>
-<footer>
-
+<footer class="site-footer">
+    <a>© 2025 Portal de Instituição — Founded 2020</a>
+    <a href="index.html" class="floating-button">
+        <img src="return_icon.png" alt="Home" class="button-icon">
+    </a>
 </footer>
 </html>
