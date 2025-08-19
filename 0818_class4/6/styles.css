@@ -1,0 +1,67 @@
+body {
+    background-color: rgba(127, 255, 212, 0.144);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+form {
+    color: teal;
+    background-color: white;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+select, input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="number"], input[type="file"] {
+    width: calc(100% - 12px);
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0, 128, 128, 0.301);
+    border-radius: 3px;
+    font-weight: normal;
+    background-color: rgba(0, 128, 128, 0.082);
+}
+
+input[type="submit"] {
+    font-weight: bold;
+    width: 100%;
+    padding: 8px;
+    background-color: teal;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.checkbox-grid {
+    border: 1px solid rgba(0, 128, 128, 0.301);
+    border-radius: 0;
+    justify-content: left;
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    gap: 15px;
+    margin: 0 auto;
+}
+
+
+
+#comments {
+    text-align: top;
+    vertical-align: top;
+    height: 10%;
+}
+
+.title {
+    text-align: center;
+    font-size: 32px;
+}

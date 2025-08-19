@@ -1,0 +1,60 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>6</title>
+        <link rel="stylesheet" href="styles.css"> 
+    </head>
+
+    <body>
+        <section class="introduction">
+
+            <form action="/submit-form" method="post">
+                <p class="title">Formulário de Inscrição</p>
+
+
+                <label for="">Nome Completo:</label> <!-- name -->
+                <input type="text" placeholder="Digite seu nome completo" required> 
+                
+                <label for="">Email:</label> <!-- e-mail -->
+                <input type="email" placeholder="Digite seu email" required>
+                
+                <label for="">Senha:</label> <!-- senha -->
+                <input type="password" placeholder="Crie uma senha" required> 
+                
+                <label for="">Data de Nascimento:</label> <!-- data de nascimento -->
+                <input type="date" required> 
+                
+                <label for="">Gênero:</label> <!-- genero -->
+                <select>
+                    <option value="option0" selected>Selecione seu gênero</option>
+                    <option value="option1" required>Masculino</option>
+                    <option value="option2" required>Feminino</option>
+                    <option value="option3" required>Outro</option>
+                    <option value="option4" required>Não Especificar</option>
+                </select>
+                
+                <label for="">Preferencia de Contato:</label>
+                <div class="checkbox-grid">
+                    <div>
+                        <input type="checkbox"/> <br>Email
+                    </div>
+                    <div>
+                        <input type="checkbox"/> <br>SMS
+                    </div>
+                    <div>
+                        <input type="checkbox"/> <br>Ligação Telefônica
+                    </div>
+                </div>
+                
+                <label for="">Foto de Perfil</label> <!-- profile picture -->
+                <input type="file">
+                
+                <label for="">Comentários:</label> <!-- comments -->
+                <input type="text" id="comments" placeholder="Digite seus comentários aqui"> 
+
+                <input type="submit" value="Enviar Inscrição"> 
+            </form>
+        </section>
+    </body>
+</html>

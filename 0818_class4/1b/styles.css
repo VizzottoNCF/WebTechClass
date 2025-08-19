@@ -1,0 +1,56 @@
+.collum-grid {
+    justify-content: left;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    margin: 0 auto;
+    gap: 15px;
+}
+
+div {
+    width: 30%;
+    height: 20%;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+#blue {
+    background-color: blue;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#red {
+    background-color: red;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#green {
+    background-color: green;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#purple {
+    background-color: purple;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

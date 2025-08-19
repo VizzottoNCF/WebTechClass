@@ -55,8 +55,9 @@ body {
 .checkbox-grid {
     justify-content: left;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(1, 1fr); 
     margin: 0 auto;
+    gap: 15px;
 }
 
 hr {

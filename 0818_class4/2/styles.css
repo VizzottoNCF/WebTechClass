@@ -1,0 +1,43 @@
+header {
+    background-color: pink;
+    
+    top: 0px;
+    left: 0px;
+
+    width: 100%;
+}
+
+h1 {
+    background-color: blue;
+}
+
+body {
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+
+    width: 100%;
+
+    background-color: grey;
+    color: white;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.normal-text {
+    font-weight: normal;
+}
+
+#white-strip {
+    width: 100%;
+    background-color: white;
+    height: 5%;
+}

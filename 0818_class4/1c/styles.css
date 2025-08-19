@@ -1,0 +1,70 @@
+.collum-grid {
+    justify-content: left;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    margin: 0 auto;
+    gap: 15px;
+}
+
+div {
+    width: 30%;
+    height: 20%;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+#blue {
+    background-color: blue;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100%;
+}
+#red {
+    background-color: red;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100%;
+}
+#green {
+    background-color: green;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100%;
+}
+#purple {
+    background-color: purple;
+
+    right: 0px;
+    top: 0px;
+}
+
+.corner-div {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100%;
+
+    width: 150px;
+    height: 150px;
+}

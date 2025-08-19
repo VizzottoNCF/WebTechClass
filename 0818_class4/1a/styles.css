@@ -1,0 +1,27 @@
+.collum-grid {
+    justify-content: left;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    margin: 0 auto;
+    gap: 15px;
+}
+
+div {
+    width: 100%;
+    height: 100%;
+    justify-content: top;
+    text-align: left;
+}
+
+#blue {
+    background-color: blue;
+}
+#red {
+    background-color: red;
+}
+#green {
+    background-color: green;
+}
+#purple {
+    background-color: purple;
+}
