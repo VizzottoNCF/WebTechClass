@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Exercicio - 8</title>
+</head>
+<body>
+    <div class="background_sub">
+        <section class="introduction">
+            <form method="post">
+                <p class="sub-title"> Cadastro de Alunos</p>
+                <label for="nome">Nome Completo:</label> <!-- name -->
+                <input type="text" id="nome" name="nome" required> 
+                
+                <label for="email">E-mail:</label> <!-- e-mail -->
+                <input type="email" id="email" name="email" required>
+
+                <label for="CPF">CPF:</label> <!-- matricula -->
+                <input type="number" id="CPF" name="CPF" minlength="11" maxlength="11" required> 
+
+                <label for="curso">Curso:</label> <!-- curso -->
+                <input type="text" id="curso" name="curso" required> 
+
+                <input type="submit" onclick="validarFormulario()" value="Enviar"> 
+            </form>
+        </section>
+    </div>
+    <script src="cadastro.js"></script>
+</body>
+</html>
+
+<!-- 
+8) Criar um formulário de cadastro de alunos em uma universidade com os seguintes campos: 
+nome, email, CPF e curso. 
+
+- Exercício de Validação: Implementar uma função JavaScript para validar o CPF digitado no 
+formulário (OBS: já existem várias funções prontas para isso, apenas adaptar ela ao seu código). 
+
+- Exercício de Submissão do Formulário: Ao enviar o formulário, exibir uma mensagem de sucesso se 
+todos os campos estiverem preenchidos corretamente e limpar os campos do formulário.
+ -->
