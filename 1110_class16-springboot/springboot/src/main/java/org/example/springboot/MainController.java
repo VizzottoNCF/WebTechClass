@@ -17,6 +17,12 @@ public class MainController {
 	@Autowired
 	private UserRepository userRepository;
 
+    // Main page
+    @GetMapping(path="")
+    public String mainPage(){
+        return "forward:/pages/Index.html";
+    }
+
 	@PostMapping(path="/add") // Map ONLY POST Requests
 	public @ResponseBody String addNewUser (@RequestParam String name, @RequestParam String email) {
 		// @ResponseBody means the returned String is the response, not a view name
@@ -58,5 +64,23 @@ public class MainController {
         return "User not found";
     }
 
+    @GetMapping("/test")
+    public @ResponseBody String test() {
+        try {
+            // Test database connection
+            long userCount = userRepository.count();
+
+            // Test if we can save a user
+            User testUser = new User();
+            testUser.setName("Test User");
+            testUser.setEmail("test@example.com");
+            userRepository.save(testUser);
+
+            return "SUCCESS: Database connected! User count: " + userCount +
+                    ". Test user saved with ID: " + testUser.getId();
+        } catch (Exception e) {
+            return "ERROR: " + e.getMessage();
+        }
+    }
 
 }

@@ -19,10 +19,13 @@ UserForm.addEventListener('submit', function(event) {
 
     // if user already exists, update
     // else, adds user
+    console.log(userId);
     if (userId) {
         updateUser(userId, name, email);
+        console.log('user updated successfully.');
     } else {
         addUser(name, email);
+        console.log('user updated successfully.');
     }
 
 });
@@ -42,9 +45,10 @@ function addUser(name, email) {
         body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`, })
     .then(response => response.text())
     .then(data => {
-        alert(data);          // user added message
-        UserForm.reset();     // clears form
-        fetchUsers()          // updates user list
+        alert(data);                       // user added message
+        saveBtn.textContent = 'Add User';  // update save message back to normal
+        UserForm.reset();                  // clears form
+        fetchUsers()                       // updates user list
     }).catch(error => { console.error('Erro:', error); });
 }
 
@@ -56,6 +60,7 @@ function updateUser(userId, name, email) {
         .then(response => response.text())
         .then(data => {
             alert(data);            // user updated message
+
             UserForm.reset();       // clears form
             userIdField.value = ''; // clears user IDLimpa o ID do usuário no campo oculto
             fetchUsers();           // updates user list
@@ -121,6 +126,7 @@ function fetchUsers() {
             row.appendChild(idCell);
             row.appendChild(nameCell);
             row.appendChild(emailCell);
+            row.appendChild(actionCell);
 
             // appends row to table
             usersTableBody.appendChild(row);
