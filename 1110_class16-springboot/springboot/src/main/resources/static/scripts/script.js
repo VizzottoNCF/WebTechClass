@@ -50,7 +50,7 @@ function addUser(name, email) {
 
 /// UPDATES EXISTING USER
 function updateUser(userId, name, email) {
-    fetch(`${backendUrl}/demo/update/${id}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`, {
+    fetch(`${backendUrl}/demo/update/${userId}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`, {
         method: 'PUT',
     })
         .then(response => response.text())
