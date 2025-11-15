@@ -1,52 +1,91 @@
-// Seleciona o formulário de adicionar usuário
-const addUserForm = document.getElementById('addUserForm');
+// const vars
+const backendUrl = 'http://localhost:8080';
+const UserForm = document.getElementById('UserForm');      //add users form
+const getAllUsersBtn = document.getElementById('getAllUsersBtn');//get all users button
+const usersTableBody = document.querySelector('#usersTable tbody');   //where users are inserted
+const userIdField = document.getElementById('userIdField');
+const saveBtn = document.getElementById('saveBtn');
 
-// Seleciona o botão de obter todos os usuários
-const getAllUsersBtn = document.getElementById('getAllUsersBtn');
 
-// Seleciona o corpo da tabela onde os usuários serão inseridos
-const usersTableBody = document.querySelector('#usersTable tbody');
+// form event listener
+UserForm.addEventListener('submit', function(event) {
 
-// Adiciona um listener para o evento de envio do formulário
-addUserForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita o envio padrão do formulário
+    event.preventDefault(); // prevent blank/default
 
-    // Obtém os valores dos campos do formulário
+    // get values
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
+    const userId = userIdField.value; // if in edit mode
 
-    // Envia uma requisição POST para adicionar um novo usuário
-    fetch('/demo/add', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`,
-    })
-    .then(response => response.text())
-    .then(data => {
-        alert(data); // Exibe uma mensagem de sucesso
-        addUserForm.reset(); // Limpa o formulário
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-    });
+    // if user already exists, update
+    // else, adds user
+    if (userId) {
+        updateUser(userId, name, email);
+    } else {
+        addUser(name, email);
+    }
+
 });
 
-// Adiciona um listener para o botão de obter todos os usuários
-getAllUsersBtn.addEventListener('click', function() {
-    // Envia uma requisição GET para obter todos os usuários
-    fetch('/demo/all')
-    .then(response => response.json())
-    .then(users => {
-        // Limpa o conteúdo atual da tabela
+// get all users listener
+getAllUsersBtn.addEventListener('click', fetchUsers);
+
+
+
+/// ADDS USER TO TABLE
+function addUser(name, email) {
+
+    // add user POST request
+    fetch(`${backendUrl}/demo/add`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded', },
+        body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`, })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);          // user added message
+        UserForm.reset();     // clears form
+        fetchUsers()          // updates user list
+    }).catch(error => { console.error('Erro:', error); });
+}
+
+/// UPDATES EXISTING USER
+function updateUser(userId, name, email) {
+    fetch(`${backendUrl}/demo/update/${id}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`, {
+        method: 'PUT',
+    })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);            // user updated message
+            UserForm.reset();       // clears form
+            userIdField.value = ''; // clears user IDLimpa o ID do usuário no campo oculto
+            fetchUsers();           // updates user list
+        }).catch(error => console.error('Erro:', error));
+}
+
+/// DELETES USER FROM TABLE
+function deleteUser(id) {
+    fetch(`${backendUrl}/demo/delete/${id}`, { method: 'DELETE', })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);            // user deleted message
+        fetchUsers();           // updates user list
+    }).catch(error => console.error('Erro:', error));
+}
+
+
+// FETCH USERS FROM TABLE
+function fetchUsers() {
+    // get all users GET request
+    fetch(`${backendUrl}/demo/all`)
+    .then(response => response.json()).then(users => {
+        // clean table
         usersTableBody.innerHTML = '';
 
-        // Itera sobre cada usuário e cria uma nova linha na tabela
+        // adds each user
         users.forEach(user => {
             const row = document.createElement('tr');
 
-            // Cria as células para ID, nome e e-mail
+            // create cells for ID, NAME and E-MAIL
             const idCell = document.createElement('td');
             idCell.textContent = user.id;
 
@@ -56,16 +95,35 @@ getAllUsersBtn.addEventListener('click', function() {
             const emailCell = document.createElement('td');
             emailCell.textContent = user.email;
 
-            // Adiciona as células à linha
+            // create action cells "EDIT" and "DELETE"
+            const actionCell = document.createElement('td');
+
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Edit';
+            editButton.onclick = () => {
+                userIdField.value = user.id; // defines id in hidden field
+                document.getElementById('name').value = user.name;
+                document.getElementById('email').value = user.email;
+                saveBtn.textContent = 'Alter User';
+            };
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = () => {
+                if (confirm(`Are you sure you want to delete user ${user.id}?`)) { deleteUser(user.id); }
+            };
+
+            // adds EDIT and DELETE button to cell
+            actionCell.appendChild(editButton);
+            actionCell.appendChild(deleteButton);
+
+            // appends cell to row
             row.appendChild(idCell);
             row.appendChild(nameCell);
             row.appendChild(emailCell);
 
-            // Adiciona a linha ao corpo da tabela
+            // appends row to table
             usersTableBody.appendChild(row);
         });
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-    });
-});
+    }).catch(error => {console.error('Erro:', error);});
+}
